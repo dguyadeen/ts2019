@@ -17,7 +17,65 @@ Nutanix Karbon is an on-prem turnkey curated enterprise-grade Kubernetes service
 
 Karbon provides a consumer-grade experience for delivering Kubernetes on-prem providing huge savings on OpEx of dedicated DevOps or SRE teams to keep Kubernetes online, up to date or integrated with 3rd party components and tooling.
 
-*<What is Kubernetes/containers? Why do people care about deploying applications using Kubernetes? What are the advantages? What problems does Karbon solve versus a DIY Kubernetes deployment? What about advantages of virtualized Kubernetes over baremetal? What does market adoption of Kubernetes look like? What are people using it for?>* (this could also be covered in the intro video)
+Kubernetes is the container orchestrator that is taking over the world. According to Redmonk, 54 %of Fortune 100 companies are running Kubernetes in some form, with adoption coming from every sector.
+
+What is Kubernetes? 
+Kubernetes is an open source container orchestration platform that helps manage distributed, containerized applications at massive scale. You tell Kubernetes that you want your software to run, and the platform takes care of virtually everything else. 
+
+Kubernetes provides a unified API to deploy web applications, batch jobs and databases. Containers—how apps are packaged and deployed in Kubernetes—cleanly decouple applications from their environment. Kubernetes automates the configuration of your applications, manages their lifecycles, and maintains and tracks resource allocation in a cluster of servers. 
+
+Containers and why they drive modern application development
+Let’s take a step back from orchestration to talk about containers and why they are so popular. A container provides two key features: a packaging mechanism and a runtime environment. At the runtime level, the container allows an application to run as an isolated process with its own view of the operating system. While VMs provide isolation via virtualized hardware, containers leverage the ability of the Linux kernel to provide isolated namespaces for individual processes. This lightweight nature means each application gets its own container, preventing dependency conflicts. As a packaging mechanism, a container is typically just a tarball: a way to bundle the code, configuration and dependencies of an application into a single file. This eliminates the problem of “It worked on my environment, why doesn’t it work on yours,” because everything necessary to run the application consistently is transported with the container. Ideally, applications produce the same output regardless of environment, and containerization makes that ideal a lot easier to reach. The result is a containerized application that will start, stop, make requests and log the same way. 
+For any business, containers represent a large opportunity. 
+●  Developers will spend less time debugging environment issues and more time writing code.  
+●  Server bills will shrink, because more applications can fit on a server using containers than in traditional deployments.  
+●  Containers can run anywhere, increasing the available deployment options.  For complex applications consisting of multiple components, containers vastly simplify updates. Placing each component in a container makes it simple to make changes without having to worry about unintended interactions with other components. This is the holy grail of decoupling.  This has led to containers becoming a great way to develop and deploy microservices. Microservices—applications with a single function—naturally benefit from containers, as they provide a clean separation between components and services. 		
+
+For complex applications consisting of multiple components, containers vastly simplify updates. Placing each component in a container makes it simple to make changes without having to worry about unintended interactions with other components. This is the holy grail of decoupling. This has led to containers becoming a great way to develop and deploy microservices. Microservices—applications with a single function—naturally benefit from containers, as they provide a clean separation between components and services.
+
+Container management and orchestration
+Containers allow us to ultimately break down an application into discrete functional parts. This has obvious advantages, but also means there are more parts to manage, increasing the workload as your business scales. This introduces complexities for configuration, service discovery, load balancing, resource scaling, and discovering and fixing failures. Managing this complexity is very difficult when attempted manually. Clusters run anywhere from tens, hundreds and even upwards of 1,000 containers; this is why sophisticated automation is necessary. 
+
+Kubernetes delivers production-grade container orchestration, automating container configuration, simplifying scaling, and managing resource allocation. Kubernetes can run anywhere. Whether you want your infrastructure to run on-premise, on a public cloud, or a hybrid configuration of both, Kubernetes delivers at massive scale. 
+
+However, using Kubernetes alone can presents many challenges that make it very difficult for organizations to adopt Kubernetes. When tens or hundreds of users touch a cluster, you need a more robust solution than vanilla Kubernetes. 
+
+An enterprise-ready Kubernetes solution adds additional value on top of Kubernetes, but to make it useable, robust, and maintainable is time intensive. This can extend the time required to deploy a production-ready cluster by months. 
+
+Here are a few reasons why you need Karbon the enterprise-ready Kubernetes distribution. 
+
+●  Engineering dependency 
+    o Running Kubernetes requires a significant amount of infrastructure expertise, which can be taxing on small or overloaded infrastructure teams. 
+    o Kubernetes is analogous to the Linux kernel meaning it requires gluing together a lot of disparate pieces to deem it enterprise-ready.
+    o There is a new version of Kubernetes every quarter and the community deprecates the release after three quarters. 
+    o An enterprise-ready Kubernetes solution must include additional components.
+      o Container Runtime (we use Moby (formerly Docker))
+      o Container-Native Networking (we use Flannel, with Calico support on the roadmap).
+      o Container-Native Storage (we use our CSI driver for block (via Nutanix Volumes) and file access (via Nutanix Files).
+      o Logging Stack (Elastic, Fluentbit and Kibana).
+      o Monitoring and Alerting (Prometeus).
+      o Hardened and Secured by default.
+●  Excessive risk 
+    o Developing your own Kubernetes stack is just as risky to production workloads as using a custom-made distribution of Linux.
+●  Increased burden of maintenance 
+    o Any engineering organization is going to incur technical debt. 
+●  Ballooning costs 
+    o Kubernetes expertise commands a premium price on the labor market.  Very few organizations have in house expertise to run Kubernetes in production, and even those that do have challenges keeping Kubernetes online.
+    o Kubernetes is free like a puppy.
+●  Catastrophic failure
+    o For the enterprise, data loss and downtime are not options. 
+●  Inconsistent support 
+    o Adopting a new technology can be intimidating for large enterprise. 
+
+What are the Use Cases for Kubernetes:
+    ●  CI/CD 
+    ●  Web Apps
+    ●  API and Backend Apps
+    ●  Microservices
+    ●  Application Modernization
+    ●  Cost Containment
+    ●  Big Data
+    ●  Hybrid Cloud
 
 **In this lab you will deploy a Kubernetes cluster using Karbon and then deploy multiple containers, referred to as Kubernetes pods, to run a sample application.**
 
